@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingStart="@dimen/paddingMain"
+        android:paddingEnd="@dimen/paddingMain"
+        android:paddingBottom="@dimen/halfOfPaddingMain"
+        android:paddingTop="@dimen/halfOfPaddingMain"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btnCategory"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            style="@style/StyleNavButton"
+            android:backgroundTint="@color/btn_category_color"
+            app:cornerRadius="8dp"
+            tools:text="@string/button_categories"
+            android:contentDescription="@string/btn_categories_description"/>
+
+        <Button
+            android:id="@+id/btnFavorites"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="2dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            style="@style/StyleNavButton"
+            android:backgroundTint="@color/btn_favorites_color"
+            tools:text="@string/button_favorites"
+            app:icon="@drawable/ic_heart_empty"
+            app:iconGravity="end"
+            android:contentDescription="@string/btn_favorites_description"/>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
