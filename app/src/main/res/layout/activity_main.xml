@@ -28,8 +28,7 @@
             android:paddingTop="10dp"
             style="@style/StyleNavButton"
             android:backgroundTint="@color/btn_category_color"
-            app:cornerRadius="8dp"
-            tools:text="@string/button_categories"
+            android:text="@string/button_categories"
             android:contentDescription="@string/btn_categories_description"/>
 
         <Button
@@ -42,7 +41,7 @@
             android:paddingTop="10dp"
             style="@style/StyleNavButton"
             android:backgroundTint="@color/btn_favorites_color"
-            tools:text="@string/button_favorites"
+            android:text="@string/button_favorites"
             app:icon="@drawable/ic_heart_empty"
             app:iconGravity="end"
             android:contentDescription="@string/btn_favorites_description"/>
