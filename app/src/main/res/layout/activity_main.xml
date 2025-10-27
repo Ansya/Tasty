@@ -28,7 +28,7 @@
             android:paddingTop="10dp"
             style="@style/StyleNavButton"
             android:backgroundTint="@color/btn_category_color"
-            android:text="@string/button_categories"
+            android:text="@string/title_categories"
             android:contentDescription="@string/btn_categories_description"/>
 
         <Button
@@ -41,12 +41,9 @@
             android:paddingTop="10dp"
             style="@style/StyleNavButton"
             android:backgroundTint="@color/btn_favorites_color"
-            android:text="@string/button_favorites"
+            android:text="@string/title_favorites"
             app:icon="@drawable/ic_heart_empty"
-            app:iconGravity="end"
+            app:iconGravity="textEnd"
             android:contentDescription="@string/btn_favorites_description"/>
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

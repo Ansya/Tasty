@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Tasty</string>
-    <string name="button_favorites">избранное</string>
-    <string name="button_categories">категории</string>
+    <string name="title_favorites">избранное</string>
+    <string name="title_categories">категории</string>
     <string name="btn_categories_description">открыть категории блюд</string>
     <string name="btn_favorites_description">открыть избранные блюда</string>
 </resources>
