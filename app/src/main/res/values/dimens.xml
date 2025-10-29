@@ -4,4 +4,6 @@
     <dimen name="halfOfPaddingMain">8dp</dimen>
     <dimen name="btnTextSize">14sp</dimen>
     <dimen name="btnCornerRadius">8dp</dimen>
+    <dimen name="btnPaddingVertical">10dp</dimen>
+    <dimen name="btnLayoutMarginEnd">2dp</dimen>
 </resources>
