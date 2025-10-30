@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="paddingMain">16dp</dimen>
-    <dimen name="halfOfPaddingMain">8dp</dimen>
-    <dimen name="btnTextSize">14sp</dimen>
-    <dimen name="btnCornerRadius">8dp</dimen>
-    <dimen name="btnPaddingVertical">10dp</dimen>
-    <dimen name="btnLayoutMarginEnd">2dp</dimen>
+    <dimen name="padding_main">16dp</dimen>
+    <dimen name="half_of_padding_main">8dp</dimen>
+    <dimen name="btn_text_size">14sp</dimen>
+    <dimen name="btn_corner_radius">8dp</dimen>
+    <dimen name="btn_padding_vertical">10dp</dimen>
+    <dimen name="btn_layout_margin_end">2dp</dimen>
 </resources>
