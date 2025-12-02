@@ -18,7 +18,7 @@ class CategoriesListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentListCategoriesBinding.inflate(layoutInflater)
+        _binding = FragmentListCategoriesBinding.inflate(inflater,container, false)
         return binding.root
     }
 
