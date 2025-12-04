@@ -3,6 +3,8 @@ package com.example.tasty
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.add
+import androidx.fragment.app.replace
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
@@ -31,7 +33,22 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add(R.id.mainContainer, CategoriesListFragment::class.java, null)
+                add<CategoriesListFragment>(R.id.mainContainer)
+                addToBackStack(null)
+            }
+        }
+
+        binding.btnCategory.setOnClickListener {
+            supportFragmentManager.commit {
+                replace<CategoriesListFragment>(R.id.mainContainer)
+                addToBackStack(null)
+            }
+        }
+
+        binding.btnFavorites.setOnClickListener {
+            supportFragmentManager.commit {
+                replace<FavoritesFragment>(R.id.mainContainer)
+                addToBackStack(null)
             }
         }
     }
