@@ -1,8 +1,8 @@
 package com.example.tasty
 
-data class Сategory(
+data class Category(
     val id: Int,
     val title: String,
-    val descriptoin: String,
+    val description: String,
     val imageURL: String
 )
