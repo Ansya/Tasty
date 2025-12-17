@@ -13,7 +13,7 @@
     </style>
     
     <style name="StyleTitle20" parent="TextAppearance.AppCompat">
-        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="fontFamily">@font/montserratalternates_semibold</item>
         <item name="android:textColor">@color/title_color</item>
         <item name="android:textSize">@dimen/title_text_size</item>
         <item name="android:textAllCaps">true</item>
@@ -21,36 +21,28 @@
 
     <style name="StyleTitleTextView" parent="android:Widget.TextView">
         <item name="android:textAppearance">@style/StyleTitle20</item>
-        <item name="cornerRadius">@dimen/title_corner_radius</item>
         <item name="android:background">@drawable/shape_round_title</item>
     </style>
     
     <style name="StyleCategory14" parent="TextAppearance.AppCompat">
-        <item name="fontFamily">@font/montserrat_semibold</item>
-        <item name="android:textSize">@dimen/category_title_text_size</item>
+        <item name="fontFamily">@font/montserratalternates_semibold</item>
+        <item name="android:textSize">@dimen/btn_text_size</item>
         <item name="android:textColor">@color/title_color</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="StyleCategoryTitleTextView" parent="android:Widget.TextView">
         <item name="android:textAppearance">@style/StyleCategory14</item>
-        <item name="android:paddingStart">@dimen/category_padding</item>
-        <item name="android:paddingEnd">@dimen/category_padding</item>
-        <item name="android:paddingTop">@dimen/category_padding</item>
     </style>
 
     <style name="StyleCategory12" parent="TextAppearance.AppCompat">
-        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
         <item name="android:textSize">@dimen/category_text_size</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/card_category_desc_color</item>
     </style>
 
     <style name="StyleCategoryTextView" parent="android:Widget.TextView">
         <item name="android:textAppearance">@style/StyleCategory12</item>
-        <item name="android:paddingStart">@dimen/category_padding</item>
-        <item name="android:paddingEnd">@dimen/category_padding</item>
-        <item name="android:paddingTop">@dimen/category_half_padding</item>
-        <item name="android:paddingBottom">@dimen/category_padding</item>
     </style>
 
 </resources>

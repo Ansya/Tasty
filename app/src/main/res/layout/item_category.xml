@@ -2,14 +2,17 @@
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/category_card_height"
-        app:cardCornerRadius="@dimen/category_card_corner_radius"
-        app:cardElevation="@dimen/category_card_height"
-        android:background="?attr/selectableItemBackground"
-        android:layout_marginHorizontal="@dimen/category_padding"
-        android:layout_marginVertical="@dimen/category_padding"
-        android:backgroundTint="@color/background_color">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/btn_corner_radius"
+        app:cardElevation="@dimen/category_card_shadow"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@color/white"
+        android:layout_marginHorizontal="@dimen/category_layout_margin"
+        android:layout_marginVertical="@dimen/category_layout_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,23 +21,28 @@
             android:background="@color/white">
 
             <ImageView
-                android:id="@+id/CategoryItemImage"
+                android:id="@+id/ivCategoryItem"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/category_card_image_height"
-                android:background="@drawable/burger"
+                tools:src="@drawable/burger"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/category_of_dish_description"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Бургеры"
-                style="@style/StyleCategoryTitleTextView"/>
+                tools:text="Бургеры"
+                style="@style/StyleCategoryTitleTextView"
+                android:layout_marginHorizontal="@dimen/category_layout_margin"
+                android:layout_marginTop="@dimen/category_layout_margin"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Рецепты всех популярных видов бургеров"
-                style="@style/StyleCategoryTextView"/>
+                tools:text="Рецепты всех популярных видов бургеров"
+                style="@style/StyleCategoryTextView"
+                android:layout_marginHorizontal="@dimen/category_layout_margin"
+                android:layout_marginVertical="@dimen/category_layout_margin"/>
 
         </LinearLayout>
 

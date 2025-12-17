@@ -11,15 +11,21 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/title_height"
-        android:background="@drawable/bcg_categories"
-        android:scaleType="center">
+        android:layout_height="@dimen/title_height">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_height"
+            android:contentDescription="@string/categories_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bcg_categories"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="@dimen/title_marging_start_bottom"
+            android:layout_marginStart="@dimen/title_margin_start_bottom"
+            android:layout_marginBottom="@dimen/title_margin_start_bottom"
             style="@style/StyleTitleTextView"
             android:text="@string/title_categories"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -36,8 +42,7 @@
         tools:listitem="@layout/item_category"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        android:layout_marginHorizontal="@dimen/category_padding"
-        android:layout_marginVertical="@dimen/category_padding">
+        android:layout_margin="@dimen/category_layout_margin">
 
     </androidx.recyclerview.widget.RecyclerView>
 

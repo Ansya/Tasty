@@ -5,4 +5,5 @@
     <string name="btn_categories_description">открыть категории блюд</string>
     <string name="btn_favorites_description">открыть избранные блюда</string>
     <string name="category_of_dish_description">Категория блюда.</string>
+    <string name="categories_image">Изображение для заголовка страницы категорий блюд.</string>
 </resources>

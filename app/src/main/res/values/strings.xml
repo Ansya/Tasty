@@ -5,4 +5,5 @@
     <string name="btn_categories_description">open categories of dishes</string>
     <string name="btn_favorites_description">open favorite dishes</string>
     <string name="category_of_dish_description">Category of dish.</string>
+    <string name="categories_image">Image for categories page title.</string>
 </resources>
