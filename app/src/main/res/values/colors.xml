@@ -10,4 +10,6 @@
     <color name="background_color">#F4FAFF</color>
     <color name="btn_category_color">#525DC0</color>
     <color name="btn_favorites_color">#E13E3E</color>
+    <color name="title_color">#5F3678</color>
+    <color name="card_category_desc_color">#666666</color>
 </resources>
