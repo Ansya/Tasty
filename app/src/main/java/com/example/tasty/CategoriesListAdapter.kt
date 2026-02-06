@@ -19,7 +19,7 @@ class CategoriesListAdapter(private val categoriesList: List<Category>) :
                     null
                 )
             } catch (_: Exception) {
-                Log.d("[ERROR]", "Category image not found: ${item.imageURL}")
+                Log.e("[ERROR]", "Category image not found: ${item.imageURL}")
                 null
             }
             binding.ivCategoryItem.setImageDrawable(drawable)
