@@ -44,16 +44,16 @@ class CategoriesListFragment : Fragment() {
 
         val listener = object : CategoriesListAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                openRecipesByCategoryId(R.id.mainContainer)
+                openRecipesByCategoryId()
             }
         }
         categoriesListAdapter.setOnItemClickListener(listener)
     }
 
-    private fun openRecipesByCategoryId(containerViewId: Int) {
+    private fun openRecipesByCategoryId() {
         parentFragmentManager.commit {
             setReorderingAllowed(true)
-            replace<RecipesListFragment>(containerViewId)
+            replace<RecipesListFragment>(R.id.mainContainer)
             addToBackStack(null)
         }
     }
