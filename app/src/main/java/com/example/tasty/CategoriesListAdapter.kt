@@ -9,6 +9,17 @@ import com.example.tasty.databinding.ItemCategoryBinding
 
 class CategoriesListAdapter(private val categoriesList: List<Category>) :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    private var itemClickListener : OnItemClickListener? = null
+
+    fun setOnItemClickListener (listener: OnItemClickListener) {
+        itemClickListener = listener
+    }
+
     class ViewHolder(private val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Category) {
@@ -37,6 +48,10 @@ class CategoriesListAdapter(private val categoriesList: List<Category>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.bind(categoriesList[position])
+
+        viewHolder.itemView.setOnClickListener {
+            itemClickListener?.onItemClick(position)
+        }
     }
 
     override fun getItemCount() = categoriesList.size

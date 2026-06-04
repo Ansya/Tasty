@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasty.databinding.FragmentListCategoriesBinding
 
@@ -39,5 +41,20 @@ class CategoriesListFragment : Fragment() {
 
         val recyclerView: RecyclerView = binding.rvCategories
         recyclerView.adapter = categoriesListAdapter
+
+        val listener = object : CategoriesListAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                openRecipesByCategoryId()
+            }
+        }
+        categoriesListAdapter.setOnItemClickListener(listener)
+    }
+
+    private fun openRecipesByCategoryId() {
+        parentFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<RecipesListFragment>(R.id.mainContainer)
+            addToBackStack(null)
+        }
     }
 }
