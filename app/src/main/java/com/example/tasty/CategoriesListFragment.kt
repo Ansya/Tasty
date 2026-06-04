@@ -43,17 +43,27 @@ class CategoriesListFragment : Fragment() {
         recyclerView.adapter = categoriesListAdapter
 
         val listener = object : CategoriesListAdapter.OnItemClickListener {
-            override fun onItemClick(position: Int) {
-                openRecipesByCategoryId()
+            override fun onItemClick(categoryId: Int) {
+                openRecipesByCategoryId(categoryId)
             }
         }
         categoriesListAdapter.setOnItemClickListener(listener)
     }
 
-    private fun openRecipesByCategoryId() {
+    private fun openRecipesByCategoryId(categoryId: Int) {
+        val category = STUB.getCategories().find { it.id == categoryId }
+        val categoryName = category?.title
+        val categoryImageUrl = category?.imageURL
+
+        val bundle = Bundle().apply {
+            putInt(ARG_CATEGORY_ID, categoryId)
+            putString(ARG_CATEGORY_NAME, categoryName)
+            putString(ARG_CATEGORY_IMAGE_URL, categoryImageUrl)
+        }
+
         parentFragmentManager.commit {
             setReorderingAllowed(true)
-            replace<RecipesListFragment>(R.id.mainContainer)
+            replace<RecipesListFragment>(R.id.mainContainer, args = bundle)
             addToBackStack(null)
         }
     }
