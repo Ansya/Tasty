@@ -43,20 +43,20 @@ class CategoriesListFragment : Fragment() {
         recyclerView.adapter = categoriesListAdapter
 
         val listener = object : CategoriesListAdapter.OnItemClickListener {
-            override fun onItemClick(categoryId: Int) {
-                openRecipesByCategoryId(categoryId)
+            override fun onItemClick(categoryID: Int) {
+                openRecipesByCategoryId(categoryID)
             }
         }
         categoriesListAdapter.setOnItemClickListener(listener)
     }
 
-    private fun openRecipesByCategoryId(categoryId: Int) {
-        val category = STUB.getCategories().find { it.id == categoryId }
+    private fun openRecipesByCategoryId(categoryID: Int) {
+        val category = STUB.getCategories().find { it.id == categoryID }
         val categoryName = category?.title
         val categoryImageUrl = category?.imageURL
 
         val bundle = Bundle().apply {
-            putInt(ARG_CATEGORY_ID, categoryId)
+            putInt(ARG_CATEGORY_ID, categoryID)
             putString(ARG_CATEGORY_NAME, categoryName)
             putString(ARG_CATEGORY_IMAGE_URL, categoryImageUrl)
         }

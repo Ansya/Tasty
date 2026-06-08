@@ -31,7 +31,7 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="StyleCategoryTitleTextView" parent="android:Widget.TextView">
+    <style name="StyleItemTitleTextView" parent="android:Widget.TextView">
         <item name="android:textAppearance">@style/StyleCategory14</item>
     </style>
 
