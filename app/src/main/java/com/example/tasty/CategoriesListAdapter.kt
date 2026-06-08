@@ -11,7 +11,7 @@ class CategoriesListAdapter(private val categoriesList: List<Category>) :
     RecyclerView.Adapter<CategoriesListAdapter.ViewHolder>() {
 
     interface OnItemClickListener {
-        fun onItemClick(position: Int)
+        fun onItemClick(categoryId: Int)
     }
 
     private var itemClickListener : OnItemClickListener? = null
@@ -26,13 +26,13 @@ class CategoriesListAdapter(private val categoriesList: List<Category>) :
             val drawable =
                 try {
                     Drawable.createFromStream(
-                    binding.ivCategoryItem.context.assets.open(item.imageURL),
+                        binding.ivCategoryItem.context.assets.open(item.imageURL),
+                        null
+                    )
+                } catch (_: Exception) {
+                    Log.e("[ERROR]", "Category image not found: ${item.imageURL}")
                     null
-                )
-            } catch (_: Exception) {
-                Log.e("[ERROR]", "Category image not found: ${item.imageURL}")
-                null
-            }
+                }
             binding.ivCategoryItem.setImageDrawable(drawable)
 
             binding.tvCategoryItemTitle.text = item.title
@@ -50,7 +50,7 @@ class CategoriesListAdapter(private val categoriesList: List<Category>) :
         viewHolder.bind(categoriesList[position])
 
         viewHolder.itemView.setOnClickListener {
-            itemClickListener?.onItemClick(position)
+            itemClickListener?.onItemClick(categoriesList[position].id)
         }
     }
 

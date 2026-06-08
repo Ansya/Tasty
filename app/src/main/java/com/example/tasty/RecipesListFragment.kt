@@ -1,6 +1,7 @@
 package com.example.tasty
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,15 @@ class RecipesListFragment: Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val categoryId = requireArguments().getInt(ARG_CATEGORY_ID)
+        val categoryName = requireArguments().getString(ARG_CATEGORY_NAME)
+        val categoryImageURL = requireArguments().getString(ARG_CATEGORY_IMAGE_URL)
+
+        Log.i("[INFO]", "Category ID: ${categoryId} \nCategory Name: ${categoryName} \nCategoryImageURL: ${categoryImageURL}")
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
