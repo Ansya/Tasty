@@ -48,11 +48,6 @@ object STUB {
         return categories
     }
 
-    fun getRecipesByCategoryId(categoryId: Int): List<Recipe> {
-        if (categoryId == 0) {
-            return burgerRecipes
-        }
-
-        return emptyList<Recipe>()
-    }
+    fun getRecipesByCategoryId(categoryId: Int) =
+        if (categoryId == 0) burgerRecipes else emptyList()
 }

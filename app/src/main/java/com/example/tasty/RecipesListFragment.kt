@@ -42,16 +42,16 @@ class RecipesListFragment : Fragment() {
 
     fun initTitle() {
         val categoryName = arguments?.getString(ARG_CATEGORY_NAME) ?: ""
-        val categoryImageURL = arguments?.getString(ARG_CATEGORY_IMAGE_URL)
-        if (categoryImageURL != null) {
+        val categoryImageUrl = arguments?.getString(ARG_CATEGORY_IMAGE_URL)
+        if (categoryImageUrl != null) {
             val drawable =
                 try {
                     Drawable.createFromStream(
-                        binding.rvRecipesCategoryImage.context.assets.open(categoryImageURL),
+                        binding.rvRecipesCategoryImage.context.assets.open(categoryImageUrl),
                         null
                     )
                 } catch (_: Exception) {
-                    Log.e("[ERROR]", "Category image not found: ${categoryImageURL}")
+                    Log.e("[ERROR]", "Category image not found: ${categoryImageUrl}")
                     null
                 }
             binding.rvRecipesCategoryImage.setImageDrawable(drawable)
@@ -71,14 +71,14 @@ class RecipesListFragment : Fragment() {
         recyclerView.adapter = recipesListAdapter
 
         val listener = object : RecipesListAdapter.OnRecipeClickListener {
-            override fun onRecipeClick(recipeID: Int) {
-                openRecipeByRecipeId(recipeID)
+            override fun onRecipeClick(recipeId: Int) {
+                openRecipeByRecipeId(recipeId)
             }
         }
         recipesListAdapter.setOnRecipeClickListener(listener)
     }
 
-    private fun openRecipeByRecipeId(recipeID: Int) {
+    private fun openRecipeByRecipeId(recipeId: Int) {
 
         parentFragmentManager.commit {
             setReorderingAllowed(true)

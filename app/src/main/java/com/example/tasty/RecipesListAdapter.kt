@@ -11,7 +11,7 @@ class RecipesListAdapter(private val recipesList: List<Recipe>) :
     RecyclerView.Adapter<RecipesListAdapter.ViewHolder>() {
 
     interface OnRecipeClickListener {
-        fun onRecipeClick(recipeID: Int)
+        fun onRecipeClick(recipeId: Int)
     }
 
     private var recipeClickListener : OnRecipeClickListener? = null
@@ -26,11 +26,11 @@ class RecipesListAdapter(private val recipesList: List<Recipe>) :
             val drawable =
                 try {
                     Drawable.createFromStream(
-                        binding.ivRecipeItem.context.assets.open(item.imageURL),
+                        binding.ivRecipeItem.context.assets.open(item.imageUrl),
                         null
                     )
                 } catch (_: Exception) {
-                    Log.e("[ERROR]", "Category image not found: ${item.imageURL}")
+                    Log.e("[ERROR]", "Category image not found: ${item.imageUrl}")
                     null
                 }
             binding.ivRecipeItem.setImageDrawable(drawable)
