@@ -53,7 +53,7 @@ class CategoriesListFragment : Fragment() {
     private fun openRecipesByCategoryId(categoryId: Int) {
         val category = STUB.getCategories().find { it.id == categoryId }
         val categoryName = category?.title
-        val categoryImageUrl = category?.imageURL
+        val categoryImageUrl = category?.imageUrl
 
         val bundle = Bundle().apply {
             putInt(ARG_CATEGORY_ID, categoryId)

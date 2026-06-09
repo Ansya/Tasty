@@ -1,7 +1,7 @@
 package com.example.tasty
 
 data class Recipe(
-    val id: String,
+    val id: Int,
     val title: String,
     val ingredients: List<Ingredient>,
     val method: List<String>,
