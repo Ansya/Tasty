@@ -1,6 +1,8 @@
 package com.example.tasty
 
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +22,21 @@ class RecipeFragment:Fragment() {
     ): View? {
         _binding = FragmentRecipeBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getParcelable(ARG_RECIPE, Recipe::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            arguments?.getParcelable<Recipe>(ARG_RECIPE)
+        }
+
+        if (recipe != null) {
+            Log.i("[INFO]", "Recipe: ${recipe.title}")
+        }
     }
 
     override fun onDestroyView() {
