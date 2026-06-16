@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/category_layout_margin"
+    android:background="@color/white"
+    android:clickable="false"
+    android:focusable="false"
+    app:cardElevation="0dp"
+    app:cardMaxElevation="0dp">
+
+    <TextView
+        android:id="@+id/tvMethodItemTitle"
+        style="@style/StyleMethodTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="1. Описание шага рецепта подлиннее и побольше." />
+
+</androidx.cardview.widget.CardView>

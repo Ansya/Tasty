@@ -1,5 +1,6 @@
 package com.example.tasty
 
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -7,9 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tasty.databinding.FragmentRecipeBinding
+import com.google.android.material.divider.MaterialDividerItemDecoration
 
-class RecipeFragment:Fragment() {
+class RecipeFragment : Fragment() {
     private var _binding: FragmentRecipeBinding? = null
     private val binding
         get() = _binding
@@ -27,6 +31,15 @@ class RecipeFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initRecycle()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    fun initRecycle() {
         val recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             arguments?.getParcelable(ARG_RECIPE, Recipe::class.java)
         } else {
@@ -35,12 +48,31 @@ class RecipeFragment:Fragment() {
         }
 
         if (recipe != null) {
-            Log.i("[INFO]", "Recipe: ${recipe.title}")
-        }
-    }
+            val drawable =
+                try {
+                    Drawable.createFromStream(
+                        binding.imRecipeImage.context.assets.open(recipe.imageUrl),
+                        null
+                    )
+                } catch (_: Exception) {
+                    Log.e("[ERROR]", "Category image not found: ${recipe.imageUrl}")
+                    null
+                }
+            binding.imRecipeImage.setImageDrawable(drawable)
+            binding.tvRecipeTitle.text = recipe.title
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+            val dividerItemDecoration = MaterialDividerItemDecoration(requireContext(),
+                LinearLayoutManager.VERTICAL)
+
+            val ingredientsAdapter = IngredientsAdapter(recipe.ingredients)
+            val ingredientsRecyclerView: RecyclerView = binding.rvIngredients
+            ingredientsRecyclerView.adapter = ingredientsAdapter
+            ingredientsRecyclerView.addItemDecoration(dividerItemDecoration)
+
+            val methodAdapter = MethodAdapter(recipe.method)
+            val methodRecyclerView = binding.rvMethod
+            methodRecyclerView.adapter = methodAdapter
+            methodRecyclerView.addItemDecoration(dividerItemDecoration)
+        }
     }
 }

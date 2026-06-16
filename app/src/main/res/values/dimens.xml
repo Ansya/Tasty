@@ -16,4 +16,5 @@
     <dimen name="category_card_shadow">2dp</dimen>
     <dimen name="recipe_layout_margin">8dp</dimen>
     <dimen name="recipe_card_image_height">100dp</dimen>
+    <dimen name="ingredient_name_weight">175dp</dimen>
 </resources>
