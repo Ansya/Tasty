@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/category_layout_margin"
     android:background="@color/white"
     android:clickable="false"
     android:focusable="false"
@@ -13,26 +12,33 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/recipe_layout_margin"
-        android:layout_marginEnd="@dimen/recipe_layout_margin">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin">
 
         <TextView
             android:id="@+id/tvIngredientItemTitle"
             style="@style/StyleIngredientTextView"
-            android:layout_width="@dimen/ingredient_name_weight"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/layout_margin_end"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvIngredientItemQuantity"
+            app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Название рецепта подлиннее" />
+            tools:text="Название рецепта подлиннее пусть будет" />
 
         <TextView
             android:id="@+id/tvIngredientItemQuantity"
             style="@style/StyleIngredientTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="end"
+            android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/tvIngredientItemTitle"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="6 с. ложек" />
 

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/category_layout_margin"
     android:background="@color/white"
     android:clickable="false"
     android:focusable="false"
@@ -12,10 +11,12 @@
     app:cardMaxElevation="0dp">
 
     <TextView
+        android:layout_marginBottom="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin"
         android:id="@+id/tvMethodItemTitle"
         style="@style/StyleMethodTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="1. Описание шага рецепта подлиннее и побольше." />
+        tools:text="1. Описание шага рецепта подлиннее и побольше чтобы было видно как он на 2 строки выглядит." />
 
 </androidx.cardview.widget.CardView>

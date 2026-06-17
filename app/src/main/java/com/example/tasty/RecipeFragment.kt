@@ -31,15 +31,6 @@ class RecipeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initRecycle()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    fun initRecycle() {
         val recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             arguments?.getParcelable(ARG_RECIPE, Recipe::class.java)
         } else {
@@ -48,31 +39,57 @@ class RecipeFragment : Fragment() {
         }
 
         if (recipe != null) {
-            val drawable =
-                try {
-                    Drawable.createFromStream(
-                        binding.imRecipeImage.context.assets.open(recipe.imageUrl),
-                        null
-                    )
-                } catch (_: Exception) {
-                    Log.e("[ERROR]", "Category image not found: ${recipe.imageUrl}")
-                    null
-                }
-            binding.imRecipeImage.setImageDrawable(drawable)
-            binding.tvRecipeTitle.text = recipe.title
-
-            val dividerItemDecoration = MaterialDividerItemDecoration(requireContext(),
-                LinearLayoutManager.VERTICAL)
-
-            val ingredientsAdapter = IngredientsAdapter(recipe.ingredients)
-            val ingredientsRecyclerView: RecyclerView = binding.rvIngredients
-            ingredientsRecyclerView.adapter = ingredientsAdapter
-            ingredientsRecyclerView.addItemDecoration(dividerItemDecoration)
-
-            val methodAdapter = MethodAdapter(recipe.method)
-            val methodRecyclerView = binding.rvMethod
-            methodRecyclerView.adapter = methodAdapter
-            methodRecyclerView.addItemDecoration(dividerItemDecoration)
+            initUI(recipe)
+            initRecycle(recipe)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    fun initUI(recipe: Recipe) {
+        val drawable =
+            try {
+                Drawable.createFromStream(
+                    binding.imRecipeImage.context.assets.open(recipe.imageUrl),
+                    null
+                )
+            } catch (_: Exception) {
+                Log.e("[ERROR]", "Category image not found: ${recipe.imageUrl}")
+                null
+            }
+        binding.imRecipeImage.setImageDrawable(drawable)
+        binding.tvRecipeTitle.text = recipe.title
+    }
+
+    fun initRecycle(recipe: Recipe) {
+        val ingredientsDivider = MaterialDividerItemDecoration(
+            requireContext(),
+            LinearLayoutManager.VERTICAL
+        )
+        //ingredientsDivider.setDividerInsetStartResource(requireContext(),R.dimen.recipe_padding)
+        //ingredientsDivider.setDividerInsetEndResource(requireContext(),R.dimen.recipe_padding)
+        ingredientsDivider.isLastItemDecorated = false
+
+        val ingredientsAdapter = IngredientsAdapter(recipe.ingredients)
+        val ingredientsRecyclerView: RecyclerView = binding.rvIngredients
+        ingredientsRecyclerView.adapter = ingredientsAdapter
+        ingredientsRecyclerView.addItemDecoration(ingredientsDivider)
+
+
+        val methodDivider = MaterialDividerItemDecoration(
+            requireContext(),
+            LinearLayoutManager.VERTICAL
+        )
+        //methodDivider.setDividerInsetStartResource(requireContext(),R.dimen.recipe_padding)
+        //methodDivider.setDividerInsetEndResource(requireContext(),R.dimen.recipe_padding)
+        methodDivider.isLastItemDecorated = false
+
+        val methodAdapter = MethodAdapter(recipe.method)
+        val methodRecyclerView = binding.rvMethod
+        methodRecyclerView.adapter = methodAdapter
+        methodRecyclerView.addItemDecoration(methodDivider)
     }
 }
