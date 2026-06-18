@@ -57,7 +57,7 @@ class RecipeFragment : Fragment() {
                     null
                 )
             } catch (_: Exception) {
-                Log.e("[ERROR]", "Category image not found: ${recipe.imageUrl}")
+                Log.e("[ERROR]", "Recipe image not found: ${recipe.imageUrl}")
                 null
             }
         binding.imRecipeImage.setImageDrawable(drawable)
@@ -69,8 +69,6 @@ class RecipeFragment : Fragment() {
             requireContext(),
             LinearLayoutManager.VERTICAL
         )
-        //ingredientsDivider.setDividerInsetStartResource(requireContext(),R.dimen.recipe_padding)
-        //ingredientsDivider.setDividerInsetEndResource(requireContext(),R.dimen.recipe_padding)
         ingredientsDivider.isLastItemDecorated = false
 
         val ingredientsAdapter = IngredientsAdapter(recipe.ingredients)
@@ -83,8 +81,6 @@ class RecipeFragment : Fragment() {
             requireContext(),
             LinearLayoutManager.VERTICAL
         )
-        //methodDivider.setDividerInsetStartResource(requireContext(),R.dimen.recipe_padding)
-        //methodDivider.setDividerInsetEndResource(requireContext(),R.dimen.recipe_padding)
         methodDivider.isLastItemDecorated = false
 
         val methodAdapter = MethodAdapter(recipe.method)
