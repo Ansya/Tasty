@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/category_layout_margin"
-    android:layout_marginVertical="@dimen/category_layout_margin"
+    android:layout_marginHorizontal="@dimen/layout_margin"
+    android:layout_marginVertical="@dimen/layout_margin"
     android:background="@color/white"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="@dimen/btn_corner_radius"
+    app:cardCornerRadius="@dimen/corner_radius"
     app:cardElevation="@dimen/category_card_shadow">
 
     <LinearLayout
@@ -32,7 +32,7 @@
             style="@style/StyleItemTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/recipe_layout_margin"
+            android:layout_margin="@dimen/layout_margin"
             tools:text="Название рецепта" />
 
     </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.tasty
 
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -7,9 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tasty.databinding.FragmentRecipeBinding
+import com.google.android.material.divider.MaterialDividerItemDecoration
 
-class RecipeFragment:Fragment() {
+class RecipeFragment : Fragment() {
     private var _binding: FragmentRecipeBinding? = null
     private val binding
         get() = _binding
@@ -35,12 +39,53 @@ class RecipeFragment:Fragment() {
         }
 
         if (recipe != null) {
-            Log.i("[INFO]", "Recipe: ${recipe.title}")
+            initUI(recipe)
+            initRecycle(recipe)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun initUI(recipe: Recipe) {
+        val drawable =
+            try {
+                Drawable.createFromStream(
+                    binding.imRecipeImage.context.assets.open(recipe.imageUrl),
+                    null
+                )
+            } catch (_: Exception) {
+                Log.e("[ERROR]", "Recipe image not found: ${recipe.imageUrl}")
+                null
+            }
+        binding.imRecipeImage.setImageDrawable(drawable)
+        binding.tvRecipeTitle.text = recipe.title
+    }
+
+    fun initRecycle(recipe: Recipe) {
+        val ingredientsDivider = MaterialDividerItemDecoration(
+            requireContext(),
+            LinearLayoutManager.VERTICAL
+        )
+        ingredientsDivider.isLastItemDecorated = false
+
+        val ingredientsAdapter = IngredientsAdapter(recipe.ingredients)
+        val ingredientsRecyclerView: RecyclerView = binding.rvIngredients
+        ingredientsRecyclerView.adapter = ingredientsAdapter
+        ingredientsRecyclerView.addItemDecoration(ingredientsDivider)
+
+
+        val methodDivider = MaterialDividerItemDecoration(
+            requireContext(),
+            LinearLayoutManager.VERTICAL
+        )
+        methodDivider.isLastItemDecorated = false
+
+        val methodAdapter = MethodAdapter(recipe.method)
+        val methodRecyclerView = binding.rvMethod
+        methodRecyclerView.adapter = methodAdapter
+        methodRecyclerView.addItemDecoration(methodDivider)
     }
 }

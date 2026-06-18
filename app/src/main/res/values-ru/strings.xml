@@ -7,4 +7,7 @@
     <string name="category_of_dish_description">Изображение категории блюда.</string>
     <string name="categories_image">Изображение для заголовка страницы категорий блюд.</string>
     <string name="recipe_image">Изображение рецепта.</string>
+    <string name="recipe_category_image">Изображение для категории рецептов.</string>
+    <string name="ingredients_title">ингредиенты</string>
+    <string name="method_title">способ приготовления</string>
 </resources>

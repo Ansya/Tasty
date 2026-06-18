@@ -7,4 +7,7 @@
     <string name="category_of_dish_description">Image of category of dish.</string>
     <string name="categories_image">Image for categories page title.</string>
     <string name="recipe_image">Image of recipe.</string>
+    <string name="recipe_category_image">Recipe category image.</string>
+    <string name="ingredients_title">ingredients</string>
+    <string name="method_title">method</string>
 </resources>
