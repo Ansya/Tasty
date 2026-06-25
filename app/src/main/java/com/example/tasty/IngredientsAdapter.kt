@@ -8,6 +8,8 @@ import com.example.tasty.databinding.ItemIngredientBinding
 class IngredientsAdapter(private val ingredientsList: List<Ingredient>) :
     RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
+    private var quantity = 1
+
     class ViewHolder(private val binding: ItemIngredientBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Ingredient) {
@@ -28,8 +30,31 @@ class IngredientsAdapter(private val ingredientsList: List<Ingredient>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bind(ingredientsList[position])
+        val ingredient = ingredientsList[position]
+        val tempQuantity = ingredient.quantity.toFloatOrNull()
+
+        if (tempQuantity != null) {
+            val realQuantity = ingredient.quantity.toFloat() * quantity.toFloat()
+            var quantityStr = "%.1f".format(realQuantity)
+
+            if (realQuantity % 1.0f == 0.0f) {
+                quantityStr = "%.0f".format(realQuantity)
+            }
+
+            viewHolder.bind(Ingredient(
+                quantityStr,
+                ingredient.unitOfMeasure,
+                ingredient.description
+            ))
+        } else {
+            viewHolder.bind(ingredient)
+        }
     }
 
     override fun getItemCount() = ingredientsList.size
+
+    fun updateIngredients(progress: Int) {
+        quantity = progress
+        notifyDataSetChanged()
+    }
 }

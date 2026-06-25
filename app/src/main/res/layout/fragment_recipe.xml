@@ -47,16 +47,46 @@
             android:layout_marginTop="@dimen/padding_main"
             android:text="@string/ingredients_title" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_main"
+            android:layout_marginTop="@dimen/subtitle_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/StyleServingsNumber16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/servings_title" />
+
+            <TextView
+                android:id="@+id/tvServingsNumber"
+                style="@style/StyleServingsNumber16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/subtitle_margin"
+                android:text="@string/servings_number_default"/>
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/sbServingsNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="5"
+            android:min="1"
+            android:progress="1"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvIngredients"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_main"
             android:background="@drawable/rounded_background"
-            android:paddingEnd="@dimen/recipe_padding"
             android:paddingStart="@dimen/recipe_padding"
-            android:paddingBottom="@dimen/half_layout_margin"
             android:paddingTop="@dimen/half_layout_margin"
+            android:paddingEnd="@dimen/recipe_padding"
+            android:paddingBottom="@dimen/half_layout_margin"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_ingredient" />
 
@@ -73,10 +103,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_main"
             android:background="@drawable/rounded_background"
-            android:paddingEnd="@dimen/recipe_padding"
             android:paddingStart="@dimen/recipe_padding"
-            android:paddingBottom="@dimen/half_layout_margin"
             android:paddingTop="@dimen/half_layout_margin"
+            android:paddingEnd="@dimen/recipe_padding"
+            android:paddingBottom="@dimen/half_layout_margin"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_method" />
 
