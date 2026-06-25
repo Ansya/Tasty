@@ -16,4 +16,6 @@
     <dimen name="half_layout_margin">4dp</dimen>
     <dimen name="recipe_card_image_height">100dp</dimen>
     <dimen name="recipe_padding">12dp</dimen>
+    <dimen name="subtitle_text_size">16sp</dimen>
+    <dimen name="subtitle_margin">6dp</dimen>
 </resources>

@@ -10,4 +10,6 @@
     <string name="recipe_category_image">Изображение для категории рецептов.</string>
     <string name="ingredients_title">ингредиенты</string>
     <string name="method_title">способ приготовления</string>
+    <string name="servings_title">Порции:</string>
+    <string name="servings_number_default">1</string>
 </resources>
